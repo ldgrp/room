@@ -14,6 +14,7 @@ type AdddLightOverrides = {
 function addLightFolder(pane: Pane, lightManager: ILightManager, lightItem: keyof Lights, name: string, override?: AdddLightOverrides) {
     const folder = pane.addFolder({
         title: name,
+        expanded: false,
     })
 
     const light = lightManager.lights[lightItem]
