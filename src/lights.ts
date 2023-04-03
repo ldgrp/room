@@ -8,8 +8,8 @@ function createSun() {
     sun.castShadow = true
     sun.shadow.camera.far = 30
     sun.shadow.mapSize.set(1024, 1024)
-    sun.position.set(-3, 3, -1.5)
-    sun.target.position.set(2.5, 0, -1.5)
+    sun.position.set(6, 10, -3)
+    sun.target.position.set(2.5, 0, -1.3)
     return sun
 }
 
@@ -50,12 +50,12 @@ function createShelfLamp() {
     return shelfLamp
 }
 
-// function createSkylight() {
-//     const skylight = new THREE.RectAreaLight('#ffffff', .5, 1, .8) 
-//     skylight.position.set(3.5, 2, -1.35)
-//     skylight.lookAt(3.5, 0, -1.35)
-//     return skylight
-// }
+function createSkylight() {
+    const skylight = new THREE.RectAreaLight('#ffffff', .2, 10, 10) 
+    skylight.position.set(5*.8, 10, -1.5)
+    skylight.lookAt(2.5, 0, -1.5)
+    return skylight
+}
 
 export type Lights = {
     sun: THREE.Light,
@@ -63,6 +63,7 @@ export type Lights = {
     lampMiddle: THREE.Light,
     lampBottom: THREE.Light,
     shelfLamp: THREE.Light,
+    skyLight: THREE.Light,
     [key: string]: THREE.Light
 }
 
@@ -86,6 +87,7 @@ class LightManager implements ILightManager {
             lampMiddle: createLampMiddle(),
             lampBottom: createLampBottom(),
             shelfLamp: createShelfLamp(),
+            skyLight: createSkylight(),
         }
     }
 
