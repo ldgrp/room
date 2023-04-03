@@ -7,7 +7,7 @@ function createSun() {
     const sun = new THREE.DirectionalLight('#ffffff', 1)
     sun.castShadow = true
     sun.shadow.camera.far = 30
-    sun.shadow.mapSize.set(4096, 4096)
+    sun.shadow.mapSize.set(1024, 1024)
     sun.position.set(-3, 3, -1.5)
     sun.target.position.set(2.5, 0, -1.5)
     return sun
@@ -45,7 +45,7 @@ function createLampBottom() {
 function createShelfLamp() {
     const shelfLamp = new THREE.PointLight("#5555ff", 1, 5)
     shelfLamp.castShadow = true
-    shelfLamp.shadow.mapSize.set(4096, 4096)
+    shelfLamp.shadow.mapSize.set(1024, 1024)
     shelfLamp.position.set(4.114, 1.25, -2.7874)
     return shelfLamp
 }
