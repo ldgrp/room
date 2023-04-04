@@ -125,7 +125,10 @@ function addLight(
 }
 
 export function initialisePane(lightManager: ILightManager) {
-    const pane = new Pane({ title: 'Parameters' });
+    const pane = new Pane({
+        title: 'Parameters',
+        expanded: screen.orientation?.type === 'landscape-primary',
+    });
     pane.addInput(ENV_PARAMS, 'day', { min: 0, max: 1 }).on('change', (ev) => {
         const { sun, skyLight } = lightManager.lights;
         const x = 6 * Math.cos(ev.value * Math.PI);
@@ -155,4 +158,6 @@ export function initialisePane(lightManager: ILightManager) {
     addLight(pane, lightManager, 'lampMiddle', 'Lamp Middle');
     addLight(pane, lightManager, 'lampBottom', 'Lamp Bottom');
     addLight(pane, lightManager, 'shelfLamp', 'Shelf Lamp');
+    addLight(pane, lightManager, 'deskLight', 'Desk');
+    addLight(pane, lightManager, 'bedLight', 'Bed');
 }
